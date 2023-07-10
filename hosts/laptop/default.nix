@@ -1,7 +1,10 @@
 { pkgs, ... } :
 
 {
-	imports = [ ./hardware-configuration.nix ];
+	imports = [ 
+    ./hardware-configuration.nix
+    ./autorandr.nix
+  ];
 
   networking.hostName = "youmu";
    services.xserver = {

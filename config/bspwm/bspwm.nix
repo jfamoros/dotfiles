@@ -7,7 +7,7 @@
     exportConfiguration = true;
     layout = "us";
     xkbVariant = "";
-    autoRepeatInterval = 70;
+    autoRepeatInterval = 20;
     autoRepeatDelay = 200;
 
     displayManager = {
@@ -19,7 +19,13 @@
     };
 
     windowManager.bspwm.enable = true;
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      mouse = {
+        accelProfile = "flat";
+        accelSpeed = "0";
+      };
+    };
   }; 
 
   environment.systemPackages = with pkgs; [       # Packages installed

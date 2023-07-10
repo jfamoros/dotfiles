@@ -15,6 +15,8 @@
     audio.enable = true;
   };
 
+  services.autorandr.enable = true;
+
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-emoji
@@ -38,6 +40,7 @@
     brightnessctl
   ];
 
+  programs.dconf.enable = true;
   programs.steam = {
   	enable = true;
   };
