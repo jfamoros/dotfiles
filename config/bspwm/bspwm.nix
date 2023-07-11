@@ -12,10 +12,17 @@
 
     displayManager = {
       defaultSession = "none+bspwm";
-      #autoLogin.enable = true;
-      #autoLogin.user = "${user}";
-      lightdm.enable = true;
-      lightdm.greeters.enso.enable = true;
+      autoLogin.enable = true;
+      autoLogin.user = "${user}";
+      lightdm = {
+        enable = true;
+        extraConfig = "logind-check-graphical=true";
+        greeters.enso.enable = true;
+      };
+      #sessionCommands = ''
+      #  xrandr --output HDMI-1-0 --set "PRIME Synchronization" 1
+      #  autorandr -c
+      #'';
     };
 
     windowManager.bspwm.enable = true;
