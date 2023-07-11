@@ -1,7 +1,8 @@
-{ ... } :
+{ pkgs, ... } :
 
 {
   services.autorandr = {
+    defaultTarget = "--debug dual-mon";
     profiles = {
       "standalone" = {
         fingerprint = {
@@ -39,7 +40,7 @@
             primary = true;
             position = "1920x0";
             mode = "2560x1440";
-            rate = "144.0";
+            rate = "143.97";
           };
         };
       };
@@ -47,7 +48,12 @@
 
     hooks.postswitch = {
       "reload-nitrogen" = ''
-        nitrogen --reload
+        ${pkgs.nitrogen}/bin/nitrogen --restore
+        for monitor in $(bspc query -M)
+        do
+            # set the workspaces on each monitor to 1-9
+            bspc monitor $monitor -d 1 2 3 4 5 6 7 8 9
+        done
       '';
     };
   };

@@ -12,8 +12,8 @@
 
     displayManager = {
       defaultSession = "none+bspwm";
-      autoLogin.enable = true;
-      autoLogin.user = "${user}";
+      #autoLogin.enable = true;
+      #autoLogin.user = "${user}";
       lightdm.enable = true;
       lightdm.greeters.enso.enable = true;
     };
